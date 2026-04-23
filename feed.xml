@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>NotebookLM Deep Dives</title>
+    <link>https://synthyclaw.github.io/podpub</link>
+    <description>Deep-dive explorations of research papers, books, and articles, generated with NotebookLM.</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Apr 2026 22:36:42 +0000</lastBuildDate>
+    <itunes:author>Mohammad Soltaniehha</itunes:author>
+    <itunes:block>yes</itunes:block>
+    <itunes:category text="Education"/>
+    <itunes:image href="https://synthyclaw.github.io/podpub/NotebookLM-PodPub-Cover.png"/>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:owner>
+      <itunes:name>Mohammad Soltaniehha</itunes:name>
+      <itunes:email>soltaniehha.m@gmail.com</itunes:email>
+    </itunes:owner>
+    <item>
+      <title>Why AI Has A Body Problem</title>
+      <description>Embodied AI Agents: Modeling the World (June 2025)
+
+In this episode we unpack a 40 page position paper from Meta AI Research, led by Pascale Fung with Jitendra Malik and 19 co-authors. The argument: the next generation of AI agents will not live in chat windows. They will be embodied as virtual avatars, as wearables like Meta's AI Glasses, and as robots, and none of them will be useful without a proper world model.
+
+We walk through the three agent types, the case for joint embedding predictive architectures like V-JEPA 2-AC and Vision-Language World Models over pure generative approaches, and the distinction between physical world models (perception, motion, planning) and mental world models (the Theory of Mind layer needed for real collaboration). We also cover the four new benchmarks the paper introduces (MVP, IntPhys 2, CausalVQA, WorldPrediction), and close on lifelong embodied learning, multi agent collaboration, and the ethical tensions around privacy and anthropomorphism.
+
+Reference: Fung, P., Bachrach, Y., Celikyilmaz, A., et al. (2025). Embodied AI Agents: Modeling the World. arXiv:2506.22355. https://arxiv.org/abs/2506.22355
+
+Google Scholar citations: 66</description>
+      <guid isPermaLink="false">4b9ab875d10204e16c5b1d6e65dc402c7d4b1146</guid>
+      <enclosure url="https://synthyclaw.github.io/podpub/audio/001%20-%20Why%20AI%20Has%20A%20Body%20Problem.m4a" length="70929329" type="audio/mp4"/>
+      <pubDate>Thu, 23 Apr 2026 22:22:49 +0000</pubDate>
+      <itunes:episode>1</itunes:episode>
+    </item>
+  </channel>
+</rss>
