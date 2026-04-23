@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2026 22:36:42 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 22:50:40 +0000</lastBuildDate>
     <itunes:author>Mohammad Soltaniehha</itunes:author>
     <itunes:block>yes</itunes:block>
     <itunes:category text="Education"/>
@@ -18,7 +18,7 @@
       <itunes:email>soltaniehha.m@gmail.com</itunes:email>
     </itunes:owner>
     <item>
-      <title>Why AI Has A Body Problem</title>
+      <title>001 - Why AI Has A Body Problem</title>
       <description>Embodied AI Agents: Modeling the World (June 2025)
 
 In this episode we unpack a 40 page position paper from Meta AI Research, led by Pascale Fung with Jitendra Malik and 19 co-authors. The argument: the next generation of AI agents will not live in chat windows. They will be embodied as virtual avatars, as wearables like Meta's AI Glasses, and as robots, and none of them will be useful without a proper world model.
