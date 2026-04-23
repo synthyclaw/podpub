@@ -1,0 +1,10 @@
+config.yaml
+podpub.log
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+venv/
+
+inbox/*
+!inbox/.gitkeep

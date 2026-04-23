@@ -1,0 +1,16 @@
+# Example config. Copy to config.yaml and edit, or let `python podpub.py` prompt you on first run.
+
+inbox_dir: /Users/you/Downloads/NotebookLM
+repo_dir: /Users/you/code/podpub
+audio_subdir: audio
+feed_path: feed.xml
+base_url: https://YOUR_GITHUB_USER.github.io/podpub
+
+podcast:
+  title: My Private Podcast
+  description: A private feed of generated audio I want on my phone.
+  author_name: Your Name
+  author_email: you@example.com
+  language: en-us
+  category: Education
+  cover_image_url: https://YOUR_GITHUB_USER.github.io/podpub/NotebookLM-PodPub-Cover.png
