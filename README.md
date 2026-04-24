@@ -23,7 +23,7 @@ Place a square podcast cover image (JPG or PNG, 1400x1400 or larger recommended)
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r setup/requirements.txt
 ```
 
 ### 4. First run creates `config.yaml`
@@ -40,7 +40,7 @@ It prompts you for:
 - podcast metadata: title, description, author name, author email, language, category
 - `cover_image_url` — auto-suggested as `{base_url}/NotebookLM-PodPub-Cover.png`
 
-The file is saved and gitignored — see `config.yaml.example`.
+The file is saved and gitignored — see `setup/config.yaml.example`.
 
 ---
 
@@ -89,14 +89,17 @@ Apple Podcasts may take up to an hour to refresh after you push new episodes. To
 ## Files
 
 ```
-podpub.py              # the script
-config.yaml            # (gitignored) your local config, created on first run
-config.yaml.example    # reference template
-requirements.txt       # feedgen, PyYAML
-feed.xml               # RSS feed (committed, served by Pages)
-audio/                 # published audio files (committed, served by Pages)
-inbox/                 # local test-drop folder (contents gitignored)
-podpub.log             # (gitignored) run log
+podpub.py                       # the script
+CLAUDE.md                       # instructions for Claude Code (PDF -> description workflow)
+config.yaml                     # (gitignored) your local config, created on first run
+feed.xml                        # RSS feed (committed, served by Pages)
+NotebookLM-PodPub-Cover.png     # cover image (committed, served by Pages)
+audio/                          # published audio files (committed, served by Pages)
+inbox/                          # local drop folder (contents gitignored)
+setup/
+  requirements.txt              # feedgen, PyYAML
+  config.yaml.example           # reference template
+podpub.log                      # (gitignored) run log
 .gitignore
 ```
 
