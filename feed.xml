@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 03:54:20 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 04:01:09 +0000</lastBuildDate>
     <itunes:author>Mohammad Soltaniehha</itunes:author>
     <itunes:block>yes</itunes:block>
     <itunes:category text="Education"/>
@@ -76,6 +76,20 @@ Reference: Smith, L., &amp; Gasser, M. (2005). The Development of Embodied Cogni
       <enclosure url="https://synthyclaw.github.io/podpub/audio/004%20-%20Why%20Human%20Intelligence%20Needs%20A%20Body.m4a" length="47854668" type="audio/mp4"/>
       <pubDate>Fri, 24 Apr 2026 03:52:35 +0000</pubDate>
       <itunes:episode>4</itunes:episode>
+    </item>
+    <item>
+      <title>005 - Moshi Ends The Voice AI Walkie Talkie</title>
+      <description>Moshi: A Speech-Text Foundation Model for Real-Time Dialogue (October 2024)
+
+In this episode we unpack a paper from Kyutai, authored by Alexandre Défossez, Laurent Mazaré, Edouard Grave, Neil Zeghidour, and four co-authors, that argues today's voice assistants feel unnatural because they are wired as walkie-talkies: a pipeline of voice activity detection, automatic speech recognition, a text LLM, and text-to-speech that introduces seconds of latency, throws away paralinguistic information like emotion and non-speech sounds, and assumes cleanly segmented speaker turns even though real conversations contain 10 to 20 percent overlapping speech. Moshi, the authors argue, breaks that frame by casting spoken dialogue as direct speech-to-speech generation inside a single model.
+
+We walk through the three components that make this work: Helium, a 7B-parameter text LLM pretrained on 2.1 trillion tokens that supplies the reasoning backbone; Mimi, a neural audio codec with residual vector quantization that distills semantic information from a self-supervised speech model into the first level of acoustic tokens; and the Moshi architecture itself, which stacks a Depth Transformer on top of Helium's Temporal Transformer to predict hierarchical audio tokens in streaming fashion while modeling the user's audio and Moshi's audio as two parallel token streams. We cover the Inner Monologue technique — predicting time-aligned text tokens as a per-timestep prefix to the semantic and acoustic tokens — and how introducing a delay between text and audio tokens yields streaming ASR and streaming TTS as a side effect, and close on the numbers that matter: 160 millisecond theoretical latency, 200 milliseconds in practice, and a full-duplex system that always listens and always generates, even through overlap, interruptions, and backchanneling.
+
+Reference: Défossez, A., Mazaré, L., Orsini, M., Royer, A., Pérez, P., Jégou, H., Grave, E., &amp; Zeghidour, N. (2024). Moshi: a speech-text foundation model for real-time dialogue. arXiv:2410.00037. https://arxiv.org/abs/2410.00037</description>
+      <guid isPermaLink="false">051b4537dc5c76e9f458f7a495bd3d6541420b3f</guid>
+      <enclosure url="https://synthyclaw.github.io/podpub/audio/005%20-%20Moshi%20Ends%20The%20Voice%20AI%20Walkie%20Talkie.m4a" length="38295934" type="audio/mp4"/>
+      <pubDate>Fri, 24 Apr 2026 03:59:36 +0000</pubDate>
+      <itunes:episode>5</itunes:episode>
     </item>
   </channel>
 </rss>
