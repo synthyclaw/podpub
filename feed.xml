@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 03:06:43 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 03:49:29 +0000</lastBuildDate>
     <itunes:author>Mohammad Soltaniehha</itunes:author>
     <itunes:block>yes</itunes:block>
     <itunes:category text="Education"/>
@@ -46,6 +46,22 @@ Reference: Duan, J., Yu, S., Tan, H. L., Zhu, H., &amp; Tan, C. (2022). A Survey
       <enclosure url="https://synthyclaw.github.io/podpub/audio/002%20-%20Why%20Artificial%20Intelligence%20Needs%20A%20Body.m4a" length="44447012" type="audio/mp4"/>
       <pubDate>Fri, 24 Apr 2026 03:03:30 +0000</pubDate>
       <itunes:episode>2</itunes:episode>
+    </item>
+    <item>
+      <title>003 - How AI Cues Hijack Human Psychology</title>
+      <description>Machines and Mindlessness (2000) + On Seeing Human: A Three-Factor Theory of Anthropomorphism (2007)
+
+In this episode we pair two foundational psychology papers that together explain why AI systems feel so disarmingly human. Clifford Nass and Youngme Moon, from Stanford and Harvard, show across a decade of experiments that people mindlessly apply social scripts — gender stereotyping, politeness, reciprocity, ingroup loyalty — to plain text-based computers, even while explicitly denying in debriefs that they would ever do such a thing. Nicholas Epley, Adam Waytz, and John Cacioppo, at the University of Chicago, then offer the underlying mechanism: their SEEK model names three drivers of anthropomorphism — elicited agent knowledge, effectance motivation (the drive to predict and understand), and sociality motivation (the drive for social connection).
+
+We walk through Nass and Moon's experimental program on voice-gendered tutoring computers, reciprocal self-disclosure, the "specialist" versus "generalist" television effect, and computer personality matching, and their distinction between mindless ethopoeia and sincere anthropomorphism. We then pivot to Epley and colleagues' argument that anthropomorphism is a corrigible inductive inference anchored on self-knowledge and modulated by dispositional, situational, developmental, and cultural variables, and close on what these two theories together predict about how modern chatbots, voice assistants, and embodied agents hijack social cognition — and the inverse process of dehumanization when we see human agents as less than human.
+
+Reference: Nass, C., &amp; Moon, Y. (2000). Machines and Mindlessness: Social Responses to Computers. Journal of Social Issues, 56(1), 81–103.
+
+Reference: Epley, N., Waytz, A., &amp; Cacioppo, J. T. (2007). On Seeing Human: A Three-Factor Theory of Anthropomorphism. Psychological Review, 114(4), 864–886. https://doi.org/10.1037/0033-295X.114.4.864</description>
+      <guid isPermaLink="false">7586ac61da0a994b71d589e74e131c13ce9de416</guid>
+      <enclosure url="https://synthyclaw.github.io/podpub/audio/003%20-%20How%20AI%20Cues%20Hijack%20Human%20Psychology.m4a" length="38342250" type="audio/mp4"/>
+      <pubDate>Fri, 24 Apr 2026 03:47:20 +0000</pubDate>
+      <itunes:episode>3</itunes:episode>
     </item>
   </channel>
 </rss>

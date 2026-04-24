@@ -1,0 +1,9 @@
+Machines and Mindlessness (2000) + On Seeing Human: A Three-Factor Theory of Anthropomorphism (2007)
+
+In this episode we pair two foundational psychology papers that together explain why AI systems feel so disarmingly human. Clifford Nass and Youngme Moon, from Stanford and Harvard, show across a decade of experiments that people mindlessly apply social scripts — gender stereotyping, politeness, reciprocity, ingroup loyalty — to plain text-based computers, even while explicitly denying in debriefs that they would ever do such a thing. Nicholas Epley, Adam Waytz, and John Cacioppo, at the University of Chicago, then offer the underlying mechanism: their SEEK model names three drivers of anthropomorphism — elicited agent knowledge, effectance motivation (the drive to predict and understand), and sociality motivation (the drive for social connection).
+
+We walk through Nass and Moon's experimental program on voice-gendered tutoring computers, reciprocal self-disclosure, the "specialist" versus "generalist" television effect, and computer personality matching, and their distinction between mindless ethopoeia and sincere anthropomorphism. We then pivot to Epley and colleagues' argument that anthropomorphism is a corrigible inductive inference anchored on self-knowledge and modulated by dispositional, situational, developmental, and cultural variables, and close on what these two theories together predict about how modern chatbots, voice assistants, and embodied agents hijack social cognition — and the inverse process of dehumanization when we see human agents as less than human.
+
+Reference: Nass, C., & Moon, Y. (2000). Machines and Mindlessness: Social Responses to Computers. Journal of Social Issues, 56(1), 81–103.
+
+Reference: Epley, N., Waytz, A., & Cacioppo, J. T. (2007). On Seeing Human: A Three-Factor Theory of Anthropomorphism. Psychological Review, 114(4), 864–886. https://doi.org/10.1037/0033-295X.114.4.864
