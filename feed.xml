@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 04:01:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 04:07:51 +0000</lastBuildDate>
     <itunes:author>Mohammad Soltaniehha</itunes:author>
     <itunes:block>yes</itunes:block>
     <itunes:category text="Education"/>
@@ -90,6 +90,20 @@ Reference: Défossez, A., Mazaré, L., Orsini, M., Royer, A., Pérez, P., Jégou
       <enclosure url="https://synthyclaw.github.io/podpub/audio/005%20-%20Moshi%20Ends%20The%20Voice%20AI%20Walkie%20Talkie.m4a" length="38295934" type="audio/mp4"/>
       <pubDate>Fri, 24 Apr 2026 03:59:36 +0000</pubDate>
       <itunes:episode>5</itunes:episode>
+    </item>
+    <item>
+      <title>006 - Why Machines Need Bodies To Communicate</title>
+      <description>Embodied Conversational Agents: Representation and Intelligence in User Interfaces (Winter 2001)
+
+In this episode we unpack an article by Justine Cassell, published in AAAI's AI Magazine, that pushes back against the "disappearing computer" dream of ubiquitous, invisible ambient computing. Her counter-claim: users cannot easily interact with what they cannot see, and the best example of located, legible intelligence humans have is the body. To build interfaces people can actually hold a conversation with, we need Embodied Conversational Agents — systems that carry speech, hand gesture, eye gaze, head movement, and facial expression together, because that is how humans do face-to-face conversation.
+
+We walk through her brief history of embodied interfaces, from the eighteenth-century automata of Droz's Writing Boy and Von Kempelen's Speaking Machine to present-day avatars, and then through her FMBT model (Functions, Modalities, Behaviors, Time, pronounced "fembot") — a multiplicity-of-representations framework that separates propositional content from interactional regulation, treats conversation as modality-free, and insists a hand gesture can be just as likely as a word to carry meaning. We then cover her implemented agent Rea, a virtual real estate agent built on the FMBT model, walking through its architecture (Input Manager, Understanding and Decision modules split into Interactional and Propositional Processing, Generation, Action Scheduler, and a hardwired-reactions path for sub-200-millisecond responses), the SPUD natural-language generation engine, and the KQML inter-module messaging, and close on why — a full generation before today's LLM-powered avatars — she was already arguing against Rodney Brooks-style "intelligence without representation" for any system that has to actually converse with a human.
+
+Reference: Cassell, J. (2001). Embodied Conversational Agents: Representation and Intelligence in User Interfaces. AI Magazine, 22(4).</description>
+      <guid isPermaLink="false">85a2e367c04bb56eb5979e6f5a42da343ea88505</guid>
+      <enclosure url="https://synthyclaw.github.io/podpub/audio/006%20-%20Why%20Machines%20Need%20Bodies%20To%20Communicate.m4a" length="25239667" type="audio/mp4"/>
+      <pubDate>Fri, 24 Apr 2026 04:05:57 +0000</pubDate>
+      <itunes:episode>6</itunes:episode>
     </item>
   </channel>
 </rss>
