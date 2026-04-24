@@ -31,6 +31,7 @@ SUPPORTED_EXTS = {
     ".wav": "audio/wav",
 }
 PROCESSED_RE = re.compile(r"^\d{3} - ")
+EP_TITLE_PREFIX_RE = re.compile(r"^\d{3}\s*-\s*")
 CONFIG_FILE = "config.yaml"
 LOG_FILE = "podpub.log"
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -116,6 +117,14 @@ def make_guid(filename: str) -> str:
     return hashlib.sha1(filename.encode("utf-8")).hexdigest()
 
 
+def _strip_title_prefix(title: str) -> str:
+    return EP_TITLE_PREFIX_RE.sub("", title).strip()
+
+
+def _format_title(ep_num: int, clean: str) -> str:
+    return f"{ep_num:03d} - {clean}"
+
+
 def read_sidecar(audio_path: Path) -> str | None:
     for ext in (".md", ".txt"):
         sc = audio_path.with_suffix(ext)
@@ -162,7 +171,7 @@ def parse_existing_feed(feed_path: Path) -> tuple[int, list[dict]]:
         ep_num = int(ep_text) if ep_text.isdigit() else 0
         max_ep = max(max_ep, ep_num)
         items.append({
-            "title": el.findtext("title", ""),
+            "title": _strip_title_prefix(el.findtext("title", "")),
             "guid": el.findtext("guid", ""),
             "pub_date": el.findtext("pubDate", ""),
             "description": el.findtext("description", ""),
@@ -199,7 +208,7 @@ def build_feed(config: dict, items: list[dict]) -> bytes:
     sorted_items = sorted(items, key=lambda i: i["episode"], reverse=True)
     for it in sorted_items:
         fe = fg.add_entry()
-        fe.title(it["title"])
+        fe.title(_format_title(it["episode"], it["title"]))
         fe.guid(it["guid"], permalink=False)
         fe.pubDate(it["pub_date"])
         fe.description(it["description"])
@@ -231,6 +240,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Publish audio files to a GitHub Pages-hosted podcast feed.")
     ap.add_argument("--dry-run", action="store_true", help="Preview without moving files, writing feed, or pushing")
     ap.add_argument("--no-push", action="store_true", help="Commit locally but skip git push")
+    ap.add_argument("--rebuild-feed", action="store_true", help="Re-emit feed.xml from existing items (no inbox processing); useful after editing config.yaml")
     args = ap.parse_args()
 
     log = setup_logging()
@@ -244,13 +254,17 @@ def main() -> int:
     base_url = cfg["base_url"].rstrip("/")
     audio_subdir = cfg["audio_subdir"]
 
-    if not inbox_dir.is_dir():
-        log.error("inbox_dir does not exist: %s", inbox_dir)
-        return 1
     if not repo_dir.is_dir():
         log.error("repo_dir does not exist: %s", repo_dir)
         return 1
     audio_dir.mkdir(parents=True, exist_ok=True)
+
+    if args.rebuild_feed:
+        return _rebuild_feed(cfg, repo_dir, feed_path, args, log)
+
+    if not inbox_dir.is_dir():
+        log.error("inbox_dir does not exist: %s", inbox_dir)
+        return 1
 
     new_files = scan_inbox(inbox_dir)
     if not new_files:
@@ -342,6 +356,33 @@ def main() -> int:
     for p in plans:
         log.info("  ep %03d - %s", p["episode"], p["url"])
     log.info("Apple Podcasts may take up to an hour to refresh. Pull down in Library to force refresh.")
+    return 0
+
+
+def _rebuild_feed(cfg: dict, repo_dir: Path, feed_path: Path, args: argparse.Namespace, log: logging.Logger) -> int:
+    _, items = parse_existing_feed(feed_path)
+    if not items:
+        log.info("No existing items found; nothing to rebuild.")
+        return 0
+    log.info("Rebuilding feed with %d existing item(s).", len(items))
+    feed_bytes = build_feed(cfg, items)
+    if args.dry_run:
+        log.info("--dry-run: feed preview below, not written.")
+        for line in feed_bytes.decode("utf-8").splitlines():
+            log.info("  %s", line)
+        return 0
+    feed_path.write_bytes(feed_bytes)
+    log.info("wrote feed: %s", feed_path)
+    git_run(repo_dir, "add", str(feed_path.relative_to(repo_dir)), log=log)
+    status = git_run(repo_dir, "diff", "--cached", "--quiet", check=False, log=log)
+    if status.returncode == 0:
+        log.info("feed.xml unchanged; nothing to commit.")
+        return 0
+    git_run(repo_dir, "commit", "-m", "Rebuild feed.xml", log=log)
+    if args.no_push:
+        log.info("--no-push: skipping git push")
+    else:
+        git_run(repo_dir, "push", log=log)
     return 0
 
 
