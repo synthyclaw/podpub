@@ -48,7 +48,7 @@ Google Scholar citations: <number>
 
 When the inbox contains more than one PDF paired with a single audio file (the audio's basename may not match either PDF — that's fine; use the audio's basename for the `.md` file), the episode is a *thematic pairing*. Keep the structure at two prose paragraphs, but:
 
-- **Title line**: combine both paper titles with `+` and each paper's month/year, e.g. `Paper One Title (2005) + Paper Two Title (2024)`.
+- **Title line**: for two or three papers, combine the titles with `+` and each paper's month/year, e.g. `Paper One Title (2005) + Paper Two Title (2024)`. For four or more papers, do **not** concatenate every title — it becomes unreadable in Apple Podcasts. Instead, synthesize one short descriptive title that captures the thread, taking direct inspiration from the audio filename (it doesn't have to match the filename word-for-word, just align with it), and put the collective year range in parentheses, e.g. `Audio filename → episode title`: `Why_physical_robots_need_social_intelligence.m4a → Why Physical Robots Need Social Intelligence (2021–2025)`. The individual paper titles still get named in the opening paragraph and in the Reference lines, so nothing is lost.
 - **Opening paragraph**: introduce both papers, their authors and affiliations, and the thread that connects them. State the pairing's argument, not each paper's in isolation.
 - **Middle paragraph**: walk through each paper's named contributions in turn — do not blend them into abstractions. Close on the synthesis.
 - **Reference block**: one `Reference:` line per paper, back-to-back. Podcast clients render as plain text with line breaks, so two references read cleanly in Apple Podcasts.
