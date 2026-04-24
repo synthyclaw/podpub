@@ -17,7 +17,7 @@ When the user asks to publish, inspect `inbox/` and follow this procedure:
    - First run: `.venv/bin/python podpub.py --dry-run` — sanity-check the rename plan, feed XML, and commit message.
    - If everything looks right, run: `.venv/bin/python podpub.py` — this moves files into `audio/`, rebuilds `feed.xml`, commits, and pushes to `origin/main`. GitHub Pages auto-deploys within ~30 seconds.
 
-4. **Leave the PDF alone.** After publish, the PDF stays in `inbox/` (already gitignored). The user can clean it up whenever; the script doesn't depend on it and it won't be re-processed (only audio extensions are scanned).
+4. **Delete the PDF(s) after publish.** Once `podpub.py` succeeds, `rm` the source PDF from `inbox/`. The user's standing preference is a clean inbox — do this without asking. If you're not sure publishing succeeded, leave the PDF and flag it.
 
 ## Standardized episode description format
 
@@ -44,6 +44,15 @@ Google Scholar citations: <number>
 - **Reference line**: APA-ish — "LastName, F., Second, L., Third, L., et al. (Year). Title. Venue or arXiv:ID. URL". For arXiv papers, include both the ID and the full URL.
 - **Google Scholar citations**: include this line only if the user explicitly provides the number or if it's easily retrievable. Never guess. If unknown, omit the line entirely.
 
+### Multi-paper episodes
+
+When the inbox contains more than one PDF paired with a single audio file (the audio's basename may not match either PDF — that's fine; use the audio's basename for the `.md` file), the episode is a *thematic pairing*. Keep the structure at two prose paragraphs, but:
+
+- **Title line**: combine both paper titles with `+` and each paper's month/year, e.g. `Paper One Title (2005) + Paper Two Title (2024)`.
+- **Opening paragraph**: introduce both papers, their authors and affiliations, and the thread that connects them. State the pairing's argument, not each paper's in isolation.
+- **Middle paragraph**: walk through each paper's named contributions in turn — do not blend them into abstractions. Close on the synthesis.
+- **Reference block**: one `Reference:` line per paper, back-to-back. Podcast clients render as plain text with line breaks, so two references read cleanly in Apple Podcasts.
+
 ### Extracting from a PDF
 
 The `Read` tool handles PDFs directly. For long PDFs (>10 pages), pass a `pages` parameter (e.g., `pages: "1-8"`) — the abstract, introduction, and contributions section are usually all that's needed. Pull:
@@ -52,8 +61,8 @@ The `Read` tool handles PDFs directly. For long PDFs (>10 pages), pass a `pages`
 - **Author list + affiliations** → compresses into the opening sentence.
 - **Abstract** → primary source for the opening paragraph's thesis.
 - **Introduction / Contributions section** → for the middle paragraph's named artifacts.
-- **DOI / arXiv ID** → from the front matter for the Reference line.
-- **Publication month / year** → from the front matter or the arXiv ID (e.g., `arXiv:2506.22355` → June 2025).
+- **DOI / arXiv ID** → from the front matter for the Reference line. Common filename-to-DOI patterns you can verify against the paper's footer or URL: arXiv uses `YYMM.NNNNN` (e.g., `2410.00037.pdf` → `arXiv:2410.00037`, Oct 2024); Nature News & Views uses the `d41586-*` prefix (e.g., `d41586-021-01170-0.pdf` → `10.1038/d41586-021-01170-0`); Nature Machine Intelligence uses `s42256-*` (e.g., `s42256-025-01005-x.pdf` → `10.1038/s42256-025-01005-x`); MIT Press journals often use the article ID as the DOI suffix (e.g., `1064546053278973.pdf` → `10.1162/1064546053278973`).
+- **Publication month / year** → from the front matter or the arXiv ID (e.g., `arXiv:2506.22355` → June 2025). If only the year is verifiable (older journal articles without a clear month), use just the year — never invent a month.
 
 Reference example — a real one from the first episode:
 ```
@@ -81,3 +90,12 @@ Google Scholar citations: 66
 - **`setup/`**: `requirements.txt`, `config.yaml.example`. Setup-only, not touched day-to-day.
 - **`inbox/`**: user's drop zone. Contents gitignored (including PDFs).
 - **`config.yaml`** (gitignored, at root): paths + podcast metadata. Read by `podpub.py` on every run.
+
+## One-time setup (only needed on a fresh clone or new machine)
+
+If `config.yaml` does not exist, the project has not been initialized yet. Walk the user through, in order:
+
+1. **GitHub repo + Pages**. Repo must exist on GitHub; in its Settings → Pages, Source = "Deploy from a branch", branch = `main`, folder = `/ (root)`. Feed URL will be `https://<user>.github.io/<repo>/feed.xml`. `git push` must work non-interactively (SSH key or credential helper).
+2. **Cover art**. Square PNG/JPG at repo root (1400×1400 minimum). `NotebookLM-PodPub-Cover.png` ships in the repo; replacing it is fine but keep the filename (or update `cover_image_url` in `config.yaml`).
+3. **Python deps**. `python3 -m venv .venv && source .venv/bin/activate && pip install -r setup/requirements.txt`.
+4. **First run**. `.venv/bin/python podpub.py` — prompts for paths, base URL, and podcast metadata; writes `config.yaml`. See `setup/config.yaml.example` for the schema.
